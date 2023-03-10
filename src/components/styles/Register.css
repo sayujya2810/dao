@@ -1,0 +1,42 @@
+.reg-div{
+    /* background-image: url('../../../public/images/doc-bg.jpg') ;
+    background-repeat: repeat;
+    background-size: contain; */
+}
+
+#wl-form{
+    background-color: rgb(255, 255, 255);
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    /* backdrop-filter: blur(10px); */
+    padding: 5rem;
+    color: white;
+    width: 100%;
+    cursor: default;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+
+}
+.hoverBtn{
+    color:"white";
+    margin:1rem;
+    padding:.5rem;
+    border-radius:5px;
+    background-color:#a50d3a;
+    cursor:"pointer";
+    transition: all .15s ease-in;
+    cursor: default;
+}
+.hoverBtn:hover{
+    background-color: black;
+    cursor: pointer;
+    /* color: black; */
+}
+
+@media screen and (max-width:880px) {
+    #wl-form{
+        padding: .5rem;
+    }
+    
+}

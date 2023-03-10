@@ -1,0 +1,69 @@
+#mint-section{
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+    width: 100%;
+    height: 10vh;
+    /* position: fixed; */
+    top: 5rem;
+    right: 0;
+    z-index:30;
+    cursor: none;
+}
+
+.red{
+    color: red;
+}
+
+
+.btnGroup{
+    position: fixed;
+    top:5rem;
+    left: 59%;
+    display:flex;
+}
+
+
+#addressBtn{
+    width: 8rem;
+    height: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1080px) {
+.btnGroup{
+    top:6rem;
+    left: 67%;
+}
+
+}
+@media screen and (max-width: 996px) {
+    #btn-login{
+        color: blue;
+    }
+    .btnGroup{
+        top:28rem;
+        left: 30%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .btnGroup{
+        top:27rem;
+        left: 35%;
+    }
+}
+@media screen and (max-width: 596px) {
+    .btnGroup{
+        top:27rem;
+        left: 45%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .btnGroup{
+        top:27rem;
+        left: 54%;
+    }
+
+}

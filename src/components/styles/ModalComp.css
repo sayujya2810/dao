@@ -1,0 +1,9 @@
+.modal-main{
+    padding: 10rem;
+    top: 10rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

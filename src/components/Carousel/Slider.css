@@ -1,0 +1,39 @@
+
+  #stage {
+    margin: 1em auto;
+    width: 382px;
+    height: 292px;
+  }
+
+  .shadow{
+    box-shadow: 0px 0px 5px 0.5px #313131;
+    border-radius: 50%;
+  }
+
+  #stage a {
+    position: absolute;
+  }
+  #stage a img {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+
+  #stage a:nth-of-type(1) {
+    animation-name: fader;
+    animation-delay: 6s;
+    animation-duration: 2s;
+    z-index: 1;
+  }
+  #stage a:nth-of-type(2) {
+    z-index: 10;
+  }
+  #stage a:nth-of-type(n+3) {
+    display: none;
+  }
+
+  @keyframes fader {
+    from { opacity: 1.0; }
+    to   { opacity: 0.0; }
+  }
+

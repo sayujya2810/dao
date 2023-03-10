@@ -1,0 +1,38 @@
+#container{
+    background-color: black;
+    width: 50%;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#container input, select, #create-btn{
+    padding: .5rem;
+    margin-top: 30px;
+    border-radius: 4px;
+
+}
+
+
+#container input, select{
+    color: black;
+}
+#create-btn{
+    background-color: #5a07e0;
+}
+
+#main{
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#category{
+    color: black;
+}
+
+.black{
+    color: black;
+}

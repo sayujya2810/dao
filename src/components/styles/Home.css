@@ -1,0 +1,12 @@
+.home{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+}
+    ::-webkit-scrollbar {
+    display: none;
+}
+
+*{
+  letter-spacing: .55px;
+}
