@@ -49,6 +49,9 @@
     font-size: 2.5em;
 }
 
+#logoMain{
+    height: 200px;
+}
 
 
 @media screen and (max-width: 850px) {
@@ -76,5 +79,5 @@
     #intro-content p{
         margin: none;
         font-size: 10px;
-    }   
+    }
 }

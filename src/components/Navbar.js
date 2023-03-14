@@ -48,7 +48,7 @@ const Navbar = (props) => {
     <nav className="main-nav">
         {/* 1st logo part  */}
         <div className="logo">
-          <img id="logo" src='./images/logo.png' alt='company logo' />
+          <img id="logo" src='./images/log3.png' alt='company logo' />
         </div>
         
 

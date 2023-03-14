@@ -2,7 +2,11 @@ import React from 'react'
 
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <div>
+      <form>
+        <button></button>
+      </form>
+    </div>
   )
 }
 

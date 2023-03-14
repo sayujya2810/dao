@@ -66,36 +66,36 @@ function flip(event){
 
 
     <div id='team' className="wrapper">
-  <h1>Our Team</h1>
-  <div className="team">
-    <div  data-aos={"fade-up"} className="team_member card" onClick={flip}>
-      <div className="team_img">
-        <img src="./images/profile/rachel.jpeg" style={{borderRadius:"50%"}} alt="Team_image" />
+      <h1>Our Team</h1>
+      <div className="team">
+        <div  data-aos={"fade-up"} className="team_member card" onClick={flip}>
+          <div className="team_img">
+            <img src="./images/profile/rachel.jpeg" style={{borderRadius:"50%"}} alt="Team_image" />
+          </div>
+          <h3>Aman Yadav</h3>
+          <p className="role">Integration Engineer</p>
+          <p>Aman is a cyber security engineer, futurist and ​digital entrepreneur.</p>
+        </div>
+        <div data-aos={"fade-up"} className="team_member card" onClick={flip}>
+          <div className="team_img">
+            <img src="./images/profile/veera.jpg" alt="Team_image" style={{borderRadius:"50%"}}  />
+          </div>
+          <h3>Veera VP</h3>
+          <p className="role">Blockchain Developer</p>
+          <p>Currently the Lead Blockchain Dev at GetBoarded Inc.</p>
+        </div>
+        <div data-aos={"fade-up"} className="team_member card" onClick={flip}>
+          <div className="team_img">
+            <img src="./images/profile/sayujya.jpg" alt="Team_image" style={{borderRadius:"50%"}}  />
+          </div>
+          <h3>Sayujya Malkan</h3>
+          <p className="role">Full Stack Developer</p>
+          <p>Worked as Core dev at Funky Bunnies 3D, was responsible to handle the production code, which sold off over 400 NFTs.</p>
+        </div>
+        
       </div>
-      <h3>Aman Yadav</h3>
-      <p className="role">Chief Executive Officer</p>
-      <p>Aman is a cyber security engineer, futurist and ​digital entrepreneur.</p>
+      
     </div>
-    <div data-aos={"fade-up"} className="team_member card" onClick={flip}>
-      <div className="team_img">
-        <img src="./images/profile/veera.jpg" alt="Team_image" style={{borderRadius:"50%"}}  />
-      </div>
-      <h3>Veera V C</h3>
-      <p className="role">Blockchain Developer</p>
-      <p>Nostrud veniam aliqua qui occaecat sunt ex laboris consequat voluptate ut laborum.</p>
-    </div>
-    <div data-aos={"fade-up"} className="team_member card" onClick={flip}>
-      <div className="team_img">
-        <img src="./images/profile/sayujya.jpg" alt="Team_image" style={{borderRadius:"50%"}}  />
-      </div>
-      <h3>Sayujya Malkan</h3>
-      <p className="role">Full Stack Developer</p>
-      <p>Full Stack Developer, Worked with Gracious Indies, a NGO funded NFT minting website which funds for orphanage as Front End Dev. </p>
-    </div>
-    
-  </div>
-  
-</div>
   )
 }
 

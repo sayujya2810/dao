@@ -25,11 +25,11 @@ const Faq = () => {
     // const classes = useStyles();
 
 
-    useEffect(() => {
-  AOS.init({
-    duration : 900
-  });
-}, []);
+        useEffect(() => {
+    AOS.init({
+        duration : 900
+    });
+    }, []);
 
   return (
     <div id='faq-section' >
@@ -78,12 +78,11 @@ const Faq = () => {
                 id="panel1a-header"
                 sx={{backgroundColor:"#5a07e0", textAlign:'center'}}
                 >
-                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>When is the pre-sale?</Typography>
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>What is DAO?</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    Mint date: March 18th, 2022.<br />
-                    Mint time: 9pm PST / 11pm CST / 12am EST
+                    A decentralized autonomous organization, sometimes called a decentralized autonomous corporation, is an organization constructed by rules encoded as a computer program that is often transparent, controlled by the organization's members and not influenced by a central government.
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -98,7 +97,7 @@ const Faq = () => {
                 </AccordionSummary>
                 <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    12 hours after the pre-sale time span.<br/>
+                    12 hours after the July 4 2023.<br/>
                     Time: 9am PST / 11am CST / 12pm EST
                 </Typography>
                 </AccordionDetails>
@@ -114,23 +113,7 @@ const Faq = () => {
                 </AccordionSummary>
                 <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    It's easy to guarantee yourself a spot on the whitelist and there's no grinding or circus-style exercises required. We're now accepting the first 5,000 whitelist entrees who apply on the Website, and the first 100 people to . Anyone can join, and by joining the whitelist you're guaranteed access to the pre-sale.
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion sx={{margin:"1rem"}} >
-                <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
-                >
-                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Who is the team?</Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
-                <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    The team is a group of diverse professionals with significant experience in social media, technology and community building. Led by CEO, Rachel Khattak, social media titan & founder of Hoenest, and COO Diego Vargas of Goat Marketing. Together they bring over a decade of experience working with world renowned brands like Netflix, Tinder, FitTea, and more.
-                    Rachel & Diego assembled a devoted team of professionals to ensure value, quality, and meaningful utility. They reached out to friends and colleagues in Web3 development, community building and the NFT space. The result is a devoted team of 6 people, all of which are experts in their respective fields.
+                    If you are already member of DAO, contact the admin: admin.dao@gmail.com
                 </Typography>
                 </AccordionDetails>
             </Accordion>

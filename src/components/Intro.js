@@ -24,8 +24,9 @@ const Intro = () => {
         <div id='intro'>
                 {/* <img data-aos="zoom-in-left" id='nft-img' src='./images/nft-img.png' alt='nft img'></img> */}
                 {/* <CarouselNft /> */}
-                <Slider />
-                <h1 data-aos="zoom-in-right" id='intro-heading'>Decetralised Autonomouse Organisation</h1>
+                {/* <Slider /> */}
+                <img id='logoMain' src='./images/log3.png' alt='company logo' />
+                <h1 data-aos="zoom-in-right" id='intro-heading'>Decetralised Autonomous Organisation</h1>
                 <p data-aos="zoom-in-right" id='intro-p'>Organisation which embraces Corporate Employee Empowerment.</p>
         </div>
     </section>

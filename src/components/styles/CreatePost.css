@@ -36,3 +36,9 @@
 .black{
     color: black;
 }
+
+.options{
+    padding: 1rem;
+    color: #5a07e0;
+    background-color: azure;
+}

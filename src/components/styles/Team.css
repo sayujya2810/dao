@@ -146,3 +146,18 @@
   height: 100px;
   padding: 5px;
 }
+
+ .voting-btn{
+  background-color: black;
+  color: white;
+  margin: 10px;
+  padding: .25rem;
+  border-radius: 4px;
+  width: 30%;
+  border: 1px solid  white;
+ }
+
+ .message{
+  margin: 12px 0;
+  font-size: 16px;
+ }

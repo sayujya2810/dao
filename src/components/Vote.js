@@ -11,7 +11,7 @@ const Vote = () => {
     const [walletAddress, setWalletAddress] = useState("Connect")
     const [nav, setNav] = useState("welcome")
     const [isAdmin, setIsAdmin] = useState(false)
-    var adminAddress = "0x5C6161C09c29876596BE53dC5546f7ec5298d896"
+    var adminAddress = "0x9769Dd9831a96E49B2c73C3C8431ff349AebD328"
 
 
     useEffect(() => {
@@ -54,11 +54,11 @@ const Vote = () => {
         <Nav admin={isAdmin} settingNav={setNav} userAddress={walletAddress} setUserAddress={setWalletAddress} />
 
         {/* Rendreing Voting Sys */}
-        <div style={{height:"90vh", overflow:"hidden", backgroundColor:"#5a07e0"}}>
+        <div style={{minHeight:"90vh", backgroundColor:"#5a07e0"}}>
             {nav === "welcome" ? <Welcome /> : null }
             {nav === "createPost" ? <CreatePost /> : null }
             {nav === "allPosts" ? <AllPosts /> : null }
-            {nav === "myPosts" ? <MyPosts /> : null }
+            {nav === "myPosts" ? <MyPosts userAddress={walletAddress} /> : null }
             {nav === "admin" ? <Admin /> : null }
         </div>
     </div>

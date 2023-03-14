@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Navbar.css'
 import { GiHamburgerMenu } from "react-icons/gi";
 import {Link as Linked} from 'react-scroll'
@@ -17,6 +17,19 @@ const Navbar = (props) => {
     const walletAddress = props.userAddress;
     const setNav = props.settingNav;
     const isAdmin = props.admin;
+    const [trucatedAddress, setTrucatedAddress] = useState("Connect")
+
+    function truncate(addressString) {
+      if (addressString )
+        return addressString.slice(0, 5) + '...' + addressString.slice(39);
+    }
+
+    useEffect(() => {
+      var addr = walletAddress
+      addr = truncate(addr)
+      setTrucatedAddress(addr)
+
+    },[walletAddress,setWalletAddress])
 
     async function requestAccount() {
     console.log('Requesting account...');
@@ -55,7 +68,7 @@ const Navbar = (props) => {
     <nav className="main-nav">
         {/* 1st logo part  */}
         <div className="logo">
-          <img id="logo" src='./images/logo.png' alt='company logo' />
+          <img id="logo" src='./images/log3.png' alt='company logo' />
         </div>
         
 
@@ -88,7 +101,9 @@ const Navbar = (props) => {
             </li>
             <li>
                 <div id='connect-wallet'>
-                    <button id='connect-wallet-btn' onClick={requestAccount} >{walletAddress}</button>
+                    <button id='connect-wallet-btn' onClick={requestAccount} >{
+                      trucatedAddress === "Conne..." ? "Connect" : trucatedAddress
+                    }</button>
                 </div>
             </li>
           </ul>
