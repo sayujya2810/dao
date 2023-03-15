@@ -124,11 +124,11 @@ const Faq = () => {
                 id="panel1a-header"
                 sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
                 >
-                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>What are the ​perks for holding a Daughters Of Crypto NFT?</Typography>
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>What are the ​perks for being part of DAO</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    For holders there will be many exciting benefits to owning a Daughters Of Crypto. From perks with our partners and IRL events to exclusive content. Other amazing utilities will be laid out <b>Timeline</b> in the .
+                    DAOs have a lot of potential: from putting power into the hands of its members and offering huge scalability to organisations, to giving them global accessibility by removing geographical barriers and providing a great platform for funding investments.
                 </Typography>
                 </AccordionDetails>
             </Accordion>
