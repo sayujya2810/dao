@@ -1,0 +1,12 @@
+
+@media only screen and (max-width: 768px) {
+    #encloser{
+        flex-direction: column;
+    }
+    #left{
+        width: 70%;
+    }
+    #right #voting{
+        height: 0px;
+    }
+}
