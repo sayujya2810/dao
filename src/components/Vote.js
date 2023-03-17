@@ -6,6 +6,7 @@ import CreatePost from './CreatePost'
 import AllPosts from './AllPosts'
 import MyPosts from './MyPosts'
 import Admin from './Admin'
+import Proposal from './Proposal'
 
 const Vote = () => {
     const [walletAddress, setWalletAddress] = useState("Connect")
@@ -56,6 +57,7 @@ const Vote = () => {
         {/* Rendreing Voting Sys */}
         <div style={{minHeight:"90vh", backgroundColor:"#5a07e0"}}>
             {nav === "welcome" ? <Welcome /> : null }
+            {/* {nav === "proposal" ? <Proposal /> : null } */}
             {nav === "createPost" ? <CreatePost /> : null }
             {nav === "allPosts" ? <AllPosts /> : null }
             {nav === "myPosts" ? <MyPosts userAddress={walletAddress} /> : null }

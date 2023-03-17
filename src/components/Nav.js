@@ -90,6 +90,9 @@ const Navbar = (props) => {
                         </li> : ""
             }
 
+            {/* <li>
+              <a onClick={() => handleNav("proposal")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Proposal</a>
+            </li> */}
             <li>
               <a onClick={() => handleNav("createPost")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Posts</a>
             </li>
