@@ -38,6 +38,7 @@ const AllPosts = (props) => {
     const contractAddress = "0x7bcc3D0BC6461077121ECD39A558c62d13dAcA53";
     const contract = new ethers.Contract(contractAddress, abi, provider);
     const tx = await contract.totalposts();
+    console.log(tx)
     return tx;
 };
 
@@ -60,7 +61,7 @@ const AllPosts = (props) => {
     //   getPost(id).then((res) => setPosts(posts => [...posts, res]))
     // } )
 
-    for(var id = 1 ; id < numPosts ; id++){
+    for(var id = 1 ; id <= numPosts ; id++){
       getPost(id).then((res) => setPosts(posts => [...posts, res]))
     }
     console.log(posts)
