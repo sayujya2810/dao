@@ -103,6 +103,15 @@ const Navbar = (props) => {
               <a onClick={() => handleNav("allPosts")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >All Posts</a>
             </li>
             <li>
+              <a onClick={() => handleNav("createPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Proposals</a>
+            </li>
+            <li>
+              <a onClick={() => handleNav("myPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >My Proposals</a>
+            </li>
+            <li>
+              <a onClick={() => handleNav("allPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >All Proposals</a>
+            </li>
+            <li>
                 <div id='connect-wallet'>
                     <button id='connect-wallet-btn' onClick={requestAccount} >{
                       trucatedAddress === "Conne..." ? "Connect" : trucatedAddress
