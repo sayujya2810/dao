@@ -23,8 +23,8 @@ const CreatePost = () => {
       alert("Submited")
 
     }
-    else if(duration === 0){
-      alert("Duration must be greater than 0")
+    else if(duration < 12*60*60){
+      alert("Duration must be greater than 12 Hours")
     }
     else{
       alert("Fields cannot be empty")

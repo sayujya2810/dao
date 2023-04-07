@@ -167,8 +167,11 @@ const voteDown = async (_id, _endTime) => {
                   <span style={{backgroundColor:"white", borderRadius:"3px", color:"black", padding:"3px", marginBottom:"10px"}}>Post ID: {parseInt(post[0],16)}</span>
                   {/* <span style={{backgroundColor:"white", borderRadius:"3px", color:"black", padding:"3px", marginBottom:"3px"}}>{post[4]}</span> */}
                 <div style={{display:"flex", justifyContent:"space-between"}}>
-                  <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(post[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseDate(post[5]) }</span>
+                  <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseDate(post[6]) }</span>
+                </div>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                  <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(post[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px"}}>{parseTime(post[6]) }</span>
                 </div>
                 <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{post[4]}</span>

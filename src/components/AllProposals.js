@@ -135,7 +135,6 @@ const curr = () => {
 
   return (
     <div >
-      <h1 style={{}}>All Proposals</h1>
       <div className="team">
         {
           proposals.map((proposal) => {
@@ -144,8 +143,11 @@ const curr = () => {
                   <span style={{backgroundColor:"white", borderRadius:"3px", color:"black", padding:"3px", marginBottom:"10px"}}>proposal ID: {parseInt(proposal[0],16)}</span>
                   {/* <span style={{backgroundColor:"white", borderRadius:"3px", color:"black", padding:"3px", marginBottom:"3px"}}>{proposal[4]}</span> */}
                 <div style={{display:"flex", justifyContent:"space-between"}}>
-                  <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(proposal[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseDate(proposal[5]) }</span>
+                  <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseDate(proposal[6]) }</span>
+                </div>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                  <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(proposal[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px"}}>{parseTime(proposal[6]) }</span>
                 </div>
                 <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{proposal[4]}</span>

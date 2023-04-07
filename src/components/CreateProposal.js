@@ -8,7 +8,7 @@ const CreateProposal = () => {
   const [duration, setDuration] = useState(0);
   const [category, setCategory] = useState("")
   const [message, setMessage] = useState("")
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(0.0)
   const [ipfsHash , setIpfsHash] = useState("")
 
 
@@ -19,14 +19,17 @@ const CreateProposal = () => {
 
   const handleCreateSubmit = (event) => {
     event.preventDefault();
-    if(duration !== 0 && category !== "" && message !== null ){
+    if(duration !== 0 && category !== "" && message !== null && duration > 24*60*60 && amount > 0){
       createPro()
       // console.log({hours, minutes, duration, categoryId, message})
       alert("Submited")
 
     }
-    else if(duration === 0){
-      alert("Duration must be greater than 0")
+    else if(duration < 24*60*60){
+      alert("Duration must be greater than 24 Hours")
+    }
+    else if(!amount.match(/[-+][0-9]+\.[0-9]+$/)){
+      alert("enter valid amount")
     }
     else{
       alert("Fields cannot be empty")
@@ -57,13 +60,12 @@ const createPro = async () => {
           <h2>Create Proposal</h2>
           <input onChange={(e) => setMessage(e.target.value)} type="text" placeholder='Topic'/>
           <input onChange={(e) => setCategory(e.target.value)} type="text" placeholder='Category' />
-          <input onChange={(e) => setHours(e.target.value)} type="number" placeholder='Hours'/>
+          <input min='24' onChange={(e) => setHours(e.target.value)} type="number" placeholder='Hours'/>
           <input onChange={(e) => setMinutes(e.target.value)} type="number" placeholder='Minutes'/>
-          <input type="text" onChange={(e) => setAmount(e.target.value)} placeholder='Amount'/>
+          <input type="number" step="0.001" min="0.001" max='0.004' onChange={(e) => setAmount(e.target.value)} placeholder='Amount'/>
           <input onChange={(e) => setIpfsHash(e.target.value)} type="text" placeholder='IPFS Hash' />
 
           <button id='create-btn' type='submit'>POST</button>
-          
       </form>
     </div>
   )

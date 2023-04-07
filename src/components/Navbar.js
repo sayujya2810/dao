@@ -86,6 +86,10 @@ const Navbar = (props) => {
             </li>
             <li>
               {/* <a href='#'>Team</a> */}
+              <Linked style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='implinks'>Important Links</Linked>
+            </li>
+            <li>
+              {/* <a href='#'>Team</a> */}
               <Linked style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='social'>Social</Linked>
             </li>
             <li>

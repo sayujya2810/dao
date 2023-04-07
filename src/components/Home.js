@@ -13,6 +13,7 @@ import Cursor from './Cursor'
 import ModalComp from './ModalComp'
 import Navbar from './Navbar'
 import AnimatedCursor from "react-animated-cursor"
+import ImpLinks from './ImpLinks'
 // import Navbar from './components/navbar/'
 // import WalletCard from './WalletCard'
 
@@ -33,6 +34,7 @@ const Home = () => {
             <Intro />
             <About />
             <Timeline />
+            <ImpLinks />
             <Faq />
             <Team />
             <Footer />

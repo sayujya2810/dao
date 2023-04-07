@@ -68,14 +68,6 @@ function flip(event){
     <div id='team' className="wrapper">
       <h1>Our Team</h1>
       <div className="team">
-        <div  data-aos={"fade-up"} className="team_member card" onClick={flip}>
-          <div className="team_img">
-            <img src="./images/profile/aman.jpg" style={{borderRadius:"50%"}} alt="Team_image" />
-          </div>
-          <h3>Aman Yadav</h3>
-          <p className="role">Integration Engineer</p>
-          <p>Aman is a cyber security engineer, futurist and ​digital entrepreneur.</p>
-        </div>
         <div data-aos={"fade-up"} className="team_member card" onClick={flip}>
           <div className="team_img">
             <img src="./images/profile/veera.jpg" alt="Team_image" style={{borderRadius:"50%"}}  />
@@ -91,6 +83,14 @@ function flip(event){
           <h3>Sayujya Malkan</h3>
           <p className="role">Full Stack Developer</p>
           <p>Worked as Core dev at Funky Bunnies 3D, was responsible to handle the production code, which sold off over 400 NFTs.</p>
+        </div>
+        <div  data-aos={"fade-up"} className="team_member card" onClick={flip}>
+          <div className="team_img">
+            <img src="./images/profile/aman.jpg" style={{borderRadius:"50%"}} alt="Team_image" />
+          </div>
+          <h3>Aman Yadav</h3>
+          <p className="role">Integration Engineer</p>
+          <p>Aman is a cyber security engineer, futurist and ​digital entrepreneur.</p>
         </div>
         
       </div>

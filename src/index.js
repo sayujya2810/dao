@@ -8,11 +8,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Vote from './components/Vote';
+import Auth from './components/Auth';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path:"/auth",
+    element:<Auth />
   },
   {
     path:"/vote",

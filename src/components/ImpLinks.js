@@ -6,7 +6,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import {TbExternalLink} from "react-icons/tb"
 import AOS from 'aos';
 import "aos/dist/aos.css"
 import { makeStyles } from '@mui/material';
@@ -14,7 +14,7 @@ import { makeStyles } from '@mui/material';
 
 
 
-const Faq = () => {
+const ImpLinks = () => {
 
     // const useStyles = makeStyles((theme) => ({
     //     accordianBackground:{
@@ -33,7 +33,7 @@ const Faq = () => {
 
   return (
     <div id='faq-section' >
-        <h1 style={{marginBottom:"2rem"}}>Frequently Asked Questions</h1>
+        <h1 style={{marginBottom:"2rem"}}>Important Links</h1>
         <div id='inner' data-aos={"fade-up"} >
             {/* <div data-aos={"fade-left"}><Collapsible  className='collapse-element'  trigger="When is the pre-sale?">
                 <p className='para'>
@@ -78,11 +78,12 @@ const Faq = () => {
                 id="panel1a-header"
                 sx={{backgroundColor:"#5a07e0", textAlign:'center'}}
                 >
-                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>What is DAO?</Typography>
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Metamask</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    A decentralized autonomous organization, sometimes called a decentralized autonomous corporation, is an organization constructed by rules encoded as a computer program that is often transparent, controlled by the organization's members and not influenced by a central government.
+                    MetaMask is a software cryptocurrency wallet used to interact with the Ethereum blockchain. It allows users to access their Ethereum wallet through a browser extension or mobile app, which can then be used to interact with decentralized applications.
+                    <br /><a href='https://metamask.io/' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Metamask <TbExternalLink /></a>
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -94,20 +95,52 @@ const Faq = () => {
                 id="panel1a-header"
                 sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
                 >
-                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>What are the ​perks for being part of DAO</Typography>
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Faucet</Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
-                    DAOs have a lot of potential: from putting power into the hands of its members and offering huge scalability to organisations, to giving them global accessibility by removing geographical barriers and providing a great platform for funding investments.
+                    Faucets are apps or websites that give out small crypto rewards in exchange for completing simple tasks. These are primarily meant for development and testing.
+                    <br /><a href='https://mumbaifaucet.com/' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Faucet <TbExternalLink /></a>
                 </Typography>
                 </AccordionDetails>
             </Accordion>
-      
-      
-            
+
+            <Accordion sx={{margin:"1rem"}} >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
+                >
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Opensea</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
+                <Typography sx={{backgroundColor:"#5a07e0"}}>
+                    OpenSea is a non-fungible token (NFT) marketplace where users can buy, sell, or create NFTs. It is a noncustodial platform, allowing users full control and access to their cryptocurrency wallets.
+                    <br /><a href='https://testnets.opensea.io/account' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Opensea <TbExternalLink /></a>
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+
+            <Accordion sx={{margin:"1rem"}} >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
+                >
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Coinbase Converter</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
+                <Typography sx={{backgroundColor:"#5a07e0"}}>
+                    Coinbase is an American publicly traded company that operates a cryptocurrency exchange platform. The converter converts the value of Fiat Currency to Crypto Currency.
+                    <br /><a href='https://www.coinbase.com/converter/matic/usd' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Coinbase Converter <TbExternalLink /></a>
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
         </div>
     </div> 
     )
 }
 
-export default Faq
+export default ImpLinks
