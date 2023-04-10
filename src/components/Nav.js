@@ -26,7 +26,7 @@ const Navbar = (props) => {
   // Get user balance / wallet balance
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    provider.getBalance("0x5C6161C09c29876596BE53dC5546f7ec5298d896").then((balance) => {
+    provider.getBalance(walletAddress).then((balance) => {
       const bal = ethers.utils.formatEther(balance)
       setUserBalance(bal.slice(0,5))
     })
