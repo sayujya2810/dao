@@ -200,6 +200,9 @@ const getbalanceOf = async() => {
             <li>
               <a onClick={() => handleNav("search")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search</a>
             </li>
+            <li>
+              <a onClick={() => handleNav("searchPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search Proposal</a>
+            </li>
             <button id='connect-wallet-btn' onMouseEnter={showBalance} onMouseLeave={hideBalance} > {balanceText}</button>
             <li>
                 <div id='connect-wallet'>

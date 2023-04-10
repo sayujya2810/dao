@@ -32,7 +32,7 @@ const ImpLinks = () => {
     }, []);
 
   return (
-    <div id='faq-section' >
+    <div id='implinks'  >
         <h1 style={{marginBottom:"2rem"}}>Important Links</h1>
         <div id='inner' data-aos={"fade-up"} >
             {/* <div data-aos={"fade-left"}><Collapsible  className='collapse-element'  trigger="When is the pre-sale?">
@@ -135,6 +135,40 @@ const ImpLinks = () => {
                 <Typography sx={{backgroundColor:"#5a07e0"}}>
                     Coinbase is an American publicly traded company that operates a cryptocurrency exchange platform. The converter converts the value of Fiat Currency to Crypto Currency.
                     <br /><a href='https://www.coinbase.com/converter/matic/usd' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Coinbase Converter <TbExternalLink /></a>
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+
+            <Accordion sx={{margin:"1rem"}} >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
+                >
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Web3 Storage</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
+                <Typography sx={{backgroundColor:"#5a07e0"}}>
+                    In Web3 storage, this decentralized model is used along with blockchain technology to store data using a distributed model. Within a Web3 storage network, user data is fragmented and spread across multiple nodes.
+                    <br /><a href='https://web3.storage/docs/' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Web3 Storage <TbExternalLink /></a>
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+
+            <Accordion sx={{margin:"1rem"}} >
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                sx={{backgroundColor:"#5a07e0", textAlign:"center"}}
+                >
+                <Typography sx={{backgroundColor:"#5a07e0", fontSize:"20px", display:'flex', width:"100%", justifyContent:"center"}}>Pinata</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{backgroundColor:"#5a07e0"}}>
+                <Typography sx={{backgroundColor:"#5a07e0"}}>
+                    Pinata is an NFT media management service that allows users to host, manage and share files of any kind on the blockchain of their choice. As an IPFS pinning service, we focus on giving both technical and non-technical creators a fast, easy, and reliable way to share content without limits.
+                    <br /><a href='https://www.pinata.cloud/' target='_blank' style={{fontWeight:"700",color:"black", textDecoration:"none"}}>Open Pinata <TbExternalLink /></a>
                 </Typography>
                 </AccordionDetails>
             </Accordion>

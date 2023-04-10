@@ -149,8 +149,9 @@ const parseDate = (_d) =>{
                   }
                 </div>
               </div>
-              
-              : null
+
+               :
+             null
         }
         </div>
         <Snackbar open={openError} autoHideDuration={4000} onClose={handleCloseError}>

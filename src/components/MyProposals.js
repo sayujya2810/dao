@@ -62,7 +62,7 @@ const MyProposals = (props) => {
     const tx = await contract.prosOfOwner(address); //edit user address -->  done ... keep this wallet address for testing ... then change it to dynamic one the  "address" variable
     setProposalIdHex(tx)
     // console.log(address)
-    // console.log(tx)
+    console.log(tx + "tx")
 };
 
 
@@ -170,8 +170,8 @@ const parseDate = (_d) =>{
     <div >
       <div className="team">
         {/* {console.log("proposals: " + proposals)} */}
-        {console.log(proposals[1])}
-
+        {console.log(proposalIdHex)}
+        {/* <h1 style={{marginTop:"6rem"}}>My pros</h1> */}
         {
           proposals.map((proposal) => {
             return(

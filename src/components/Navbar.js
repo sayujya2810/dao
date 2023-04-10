@@ -3,23 +3,127 @@ import './styles/Navbar.css'
 import { FaInstagram, FaTwitter, FaDiscord } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {Link as Linked} from 'react-scroll'
-import { Route, Routes, Link  } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate  } from 'react-router-dom';
 import Vote from './Vote';
+import { useEffect } from 'react';
+import { ethers } from 'ethers';
 // import Mint from './Mint';
 
 
 const Navbar = (props) => {
 
   const [walletAddress, setWalletAddress] = useState("Connect Wallet")
-
+  const [trucatedAddress, setTrucatedAddress] = useState("Connect")
+  const [auth, setAuth] = useState(0)
   const setFlag = props.child1
   const setUserAddress = props.userAddress
   const userAddress = props.settingAddress
+  const navigate = useNavigate();
 
     // const alertMe = () => {
     //   alert("Connect Btn clicked")
     // }
+    function Reload(){
+      window.location.reload()
+    }
 
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    window.ethereum.on('accountsChanged',() => Reload());
+    const setAccountListener = (provider) => {
+      provider.on("accountsChanged", () => window.location.reload());
+      provider.on("chainChanged", () => window.location.reload());
+    };
+
+    useEffect(() => {
+     // Load provider
+
+      if (provider) {
+        setAccountListener(provider);
+        // add more logic
+      } else {
+        
+        console.error("Please, install Metamask.");
+      }
+
+  }, []);
+
+    const getbalanceOf = async() => {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const abi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address[]","name":"_to","type":"address[]"}],"name":"Airdrop","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"MetadataUri","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"}],"name":"Mint","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"}],"name":"walletOfOwner","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"}]
+        const contractAddress = "0xb152A8318E63560E87C35220FB45DC87d8E7bb5C";
+        const contract = new ethers.Contract(contractAddress, abi, provider);
+        const tx = await contract.balanceOf(userAddress); // use this to check whether the owner alreadys owns a nft or not
+        console.log("Auth : " + parseInt(tx))
+        setAuth(parseInt(tx))
+        // use this on the landing page before allowing them to use posts or proposals
+        // also use this to check the wallet addresse given in the input field in the mint and airdrop function to make sure no wallet is sent 2 NFTs
+    };
+
+
+
+       const switchNetworkPolygon = async() => {
+        try {
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0x13881" }],
+          });
+          // window.location.reload(false)
+        } catch (error) {
+          if (error.code === 4902) {
+            try {
+              await window.ethereum.request({
+                method: "wallet_addEthereumChain",
+                params: [
+                  {
+                    chainId: "0x13881",
+                    chainName: "Polygon Testnet",
+                    rpcUrls: ["https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78"],
+                    nativeCurrency: {
+                      name: "MATIC",
+                      symbol: "MATIC",
+                      decimals: 18,
+                    },
+                    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                  },
+                ],
+              });
+              window.location.reload(false)
+            } catch (error) {
+              alert(error.message);
+            }
+          }
+        }
+      }
+
+    window.onbeforeunload = (e) =>{
+    // logout();
+    }
+
+    useEffect(() => {
+      var addr = userAddress
+      // var addr = walletAddress
+      addr = truncate(addr)
+      setTrucatedAddress(addr)
+      switchNetworkPolygon()
+    },[userAddress,setUserAddress])
+
+    useEffect(() => {
+      getbalanceOf()
+    }, [userAddress,setUserAddress])
+
+    useEffect(() => {
+      navigate("/")
+    },[userAddress,setUserAddress])
+
+    // useEffect(() => {
+    //   if(auth >= 1){
+    //     alert("You are authorized")
+    //   }
+    //   else{
+    //     alert("you are not authorized")
+    //   }
+    // }, [getbalanceOf])
+    
     async function requestAccount() {
     console.log('Requesting account...');
 
@@ -41,6 +145,13 @@ const Navbar = (props) => {
       alert('Meta Mask not detected');
     }
   }
+
+  function truncate(addressString) {
+      if (addressString )
+        return addressString.slice(0, 5) + '...' + addressString.slice(39);
+    }
+
+    
     
 
     const [showMediaIcons, setShowMediaIcons] = useState(false);
@@ -86,15 +197,26 @@ const Navbar = (props) => {
             </li>
             <li>
               {/* <a href='#'>Team</a> */}
-              <Linked style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='implinks'>Important Links</Linked>
+              <Linked style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='implinks'>Links</Linked>
             </li>
             <li>
               {/* <a href='#'>Team</a> */}
               <Linked style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='social'>Social</Linked>
             </li>
+            {
+              auth === 1 ? 
+              <li>
+                {/* <a href='#'>Team</a> */}
+                <a href="/vote" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Vote</a>
+              </li>
+              : <p style={{color:"#ff4a4a", marginTop:"15px"}}>Unauthorized</p>
+            }
             <li>
-              {/* <a href='#'>Team</a> */}
-              <a href="/vote" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Vote</a>
+                <div id='connect-wallet'>
+                    <button id='connect-wallet-btn' onClick={requestAccount} >{
+                      trucatedAddress === "Conne..." ? "Connect" : trucatedAddress
+                    }</button>
+                </div>
             </li>
           </ul>
         </div>

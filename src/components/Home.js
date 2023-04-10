@@ -14,19 +14,20 @@ import ModalComp from './ModalComp'
 import Navbar from './Navbar'
 import AnimatedCursor from "react-animated-cursor"
 import ImpLinks from './ImpLinks'
+import { useEffect } from 'react'
 // import Navbar from './components/navbar/'
 // import WalletCard from './WalletCard'
+
 
 const Home = () => {
 
   const [flag, setFlag] = useState(false)
   const [userAddress, setUserAddress] = useState("Connect")
 
-
   return (
     <>
         {/* <Navbar /> */}
-            <Navbar child1={setFlag} userAddress = {setUserAddress} settingAddress={userAddress} />
+        <Navbar child1={setFlag} userAddress = {setUserAddress} settingAddress={userAddress} />
         <div className='home'>
           {/* <WalletCard /> */}
           {/* <Mint /> */}

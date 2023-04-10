@@ -12,6 +12,7 @@ import MyProposals from './MyProposals'
 import CreateProposal from './CreateProposal'
 import { ethers } from 'ethers'
 import Search from './Search'
+import SearchProposals from './SearchProposals'
 
 const Vote = () => {
     const [walletAddress, setWalletAddress] = useState("Connect")
@@ -71,7 +72,7 @@ const Vote = () => {
                 '.link'
             ]}
             />
-
+            
             
         <Nav admin={isAdmin} settingAuth={setAuthToken} settingNav={setNav} userAddress={walletAddress} setUserAddress={setWalletAddress} />
         {/* Rendreing Voting Sys */}
@@ -86,6 +87,7 @@ const Vote = () => {
                 {nav === "myPosts" ? <MyPosts userAddress={walletAddress} /> : null }
                 {nav === "admin" ? <Admin /> : null }
                 {nav === "search" ? <Search /> : null }
+                {nav === "searchPro" ? <SearchProposals /> : null }
             </div>}
     </div>
   )
