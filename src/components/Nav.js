@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import {Link as Linked} from 'react-scroll'
 import { ethers } from 'ethers';
 import { type } from '@testing-library/user-event/dist/type';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = (props) => {
@@ -16,12 +17,27 @@ const Navbar = (props) => {
     const isAdmin = props.admin;
     const [trucatedAddress, setTrucatedAddress] = useState("Connect")
     const [userBalance, setUserBalance] = useState(0)
+    const navigate = useNavigate();
+    const setAuth = props.settingAuth
+    const auth = props.authState
+    const navType = props.nav
 
-  const setAuth = props.settingAuth
   useEffect(() => {
     const bal = getBalance()
     bal.then(res => setBalance(ethers.utils.formatEther(res)))
   })
+
+  
+
+  // if(window.ethereum){
+  //     window.ethereum.on('accountsChanged', () => {
+  //        requestAccount()
+  //        getbalanceOf()
+  //       //  alert(auth)
+  //     });
+  //     // window.ethereum._metamask.isUnlocked().then(res => console.log(res))
+  //   }
+
 
   // Get user balance / wallet balance
   useEffect(() => {
@@ -69,36 +85,38 @@ const getbalanceOf = async() => {
     };
 
  const switchNetworkPolygon = async() => {
-    try {
-      await window.ethereum.request({
-        method: "wallet_switchEthereumChain",
-        params: [{ chainId: "0x13881" }],
-      });
-    } catch (error) {
-      if (error.code === 4902) {
         try {
           await window.ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: [
-              {
-                chainId: "0x13881",
-                chainName: "Gnosis Chain",
-                rpcUrls: ["https://rpc.ankr.com/polygon_mumbai"],
-                nativeCurrency: {
-                  name: "MATIC",
-                  symbol: "MATIC",
-                  decimals: 18,
-                },
-                blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
-              },
-            ],
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0x13881" }],
           });
+          // window.location.reload(false)
         } catch (error) {
-          alert(error.message);
+          if (error.code === 4902) {
+            try {
+              await window.ethereum.request({
+                method: "wallet_addEthereumChain",
+                params: [
+                  {
+                    chainId: "0x13881",
+                    chainName: "Polygon Testnet",
+                    rpcUrls: ["https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78"],
+                    nativeCurrency: {
+                      name: "MATIC",
+                      symbol: "MATIC",
+                      decimals: 18,
+                    },
+                    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                  },
+                ],
+              });
+              window.location.reload(false)
+            } catch (error) {
+              alert(error.message);
+            }
+          }
         }
       }
-    }
-  }
     
 
     function truncate(addressString) {
@@ -133,7 +151,7 @@ const getbalanceOf = async() => {
         // setWalletAddress(accounts[0]);
         setWalletAddress(accounts[0])
         getbalanceOf()
-        switchNetworkPolygon()
+        // switchNetworkPolygon()
       } catch (error) {
         console.log('Error connecting...');
       }
@@ -169,7 +187,7 @@ const getbalanceOf = async() => {
         <div
           className={ showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"} >
           <ul>
-            
+
             <li>
               <a href='/' style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='main' >Home</a>
             </li>
@@ -179,39 +197,52 @@ const getbalanceOf = async() => {
                             <a onClick={() => handleNav("admin")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Admin</a>
                         </li> : ""
             }
-            <li>
-              <a onClick={() => handleNav("createPost")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Posts</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("myPosts")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >My Posts</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("allPosts")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >All Posts</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("createPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Proposals</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("myPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >My Proposals</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("allPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >All Proposals</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("search")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search</a>
-            </li>
-            <li>
-              <a onClick={() => handleNav("searchPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search Proposal</a>
-            </li>
+
+            {
+              navType === "proposal" ? 
+
+              <>
+                <li>
+                  <a onClick={() => handleNav("createPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Proposals</a>
+                </li>
+                <li>
+                  <a onClick={() => handleNav("myPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >My Proposals</a>
+                </li>
+                <li>
+                  <a onClick={() => handleNav("allPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >All Proposals</a>
+                </li>
+                <li>
+                  <a onClick={() => handleNav("searchPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search Proposal</a>
+                </li>
+              </>
+              : navType === "vote" ? 
+
+              <>
+                <li>
+                  <a onClick={() => handleNav("createPost")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Posts</a>
+                </li>
+                <li>
+                  <a onClick={() => handleNav("myPosts")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >My Posts</a>
+                </li>
+                <li>
+                  <a onClick={() => handleNav("allPosts")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >All Posts</a>
+                </li>
+                <li>
+                    <a onClick={() => handleNav("search")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search Post</a>
+                </li>
+              </> : null
+            }
+
             <button id='connect-wallet-btn' onMouseEnter={showBalance} onMouseLeave={hideBalance} > {balanceText}</button>
-            <li>
+              <li>
                 <div id='connect-wallet'>
                     <button id='connect-wallet-btn' onClick={requestAccount} >{
                       trucatedAddress === "Conne..." ? "Connect" : trucatedAddress
                     }</button>
-                </div>
-            </li>
+                  </div>
+              </li>
             <button id='connect-wallet-btn' > {userBalance} MATIC</button>
+            
           </ul>
         </div>
 

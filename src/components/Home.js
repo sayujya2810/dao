@@ -19,15 +19,20 @@ import { useEffect } from 'react'
 // import WalletCard from './WalletCard'
 
 
-const Home = () => {
+const Home = (props) => {
 
   const [flag, setFlag] = useState(false)
-  const [userAddress, setUserAddress] = useState("Connect")
+  // const [userAddress, setUserAddress] = useState("Connect")
 
+  const userAddress = props.userAddress
+  const setUserAddress = props.setUserAddress
+  // const {auth, setAuth} = props
+  const auth = props.auth
+  const setAuth = props.setAuth
   return (
     <>
         {/* <Navbar /> */}
-        <Navbar child1={setFlag} userAddress = {setUserAddress} settingAddress={userAddress} />
+        <Navbar child1={setFlag} userAddress={setUserAddress} settingAddress={userAddress} auth={auth} setAuth={setAuth} />
         <div className='home'>
           {/* <WalletCard /> */}
           {/* <Mint /> */}

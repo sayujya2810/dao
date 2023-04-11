@@ -14,38 +14,45 @@ const Navbar = (props) => {
 
   const [walletAddress, setWalletAddress] = useState("Connect Wallet")
   const [trucatedAddress, setTrucatedAddress] = useState("Connect")
-  const [auth, setAuth] = useState(0)
+  // const [auth, setAuth] = useState(0)
   const setFlag = props.child1
   const setUserAddress = props.userAddress
   const userAddress = props.settingAddress
   const navigate = useNavigate();
 
+  const auth = props.auth
+  const setAuth = props.setAuth
+
     // const alertMe = () => {
     //   alert("Connect Btn clicked")
     // }
-    function Reload(){
-      window.location.reload()
+
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    if(window.ethereum){
+      window.ethereum.on('accountsChanged', () => {
+         requestAccount()
+      });
+      // window.ethereum._metamask.isUnlocked().then(res => console.log(res))
     }
+    
+  //   const setAccountListener = (provider) => {
+  //     provider.on("accountsChanged", () => window.location.reload());
+  //     provider.on("chainChanged", () => window.location.reload());
+  //   };
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    window.ethereum.on('accountsChanged',() => Reload());
-    const setAccountListener = (provider) => {
-      provider.on("accountsChanged", () => window.location.reload());
-      provider.on("chainChanged", () => window.location.reload());
-    };
+  //   useEffect(() => {
+  //    // Load provider
 
-    useEffect(() => {
-     // Load provider
-
-      if (provider) {
-        setAccountListener(provider);
-        // add more logic
-      } else {
+  //     if (provider) {
+  //       setAccountListener(provider);
+  //       // add more logic
+  //     } else {
         
-        console.error("Please, install Metamask.");
-      }
+  //       console.error("Please, install Metamask.");
+  //     }
 
-  }, []);
+  // }, []);
 
     const getbalanceOf = async() => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -53,11 +60,12 @@ const Navbar = (props) => {
         const contractAddress = "0xb152A8318E63560E87C35220FB45DC87d8E7bb5C";
         const contract = new ethers.Contract(contractAddress, abi, provider);
         const tx = await contract.balanceOf(userAddress); // use this to check whether the owner alreadys owns a nft or not
-        console.log("Auth : " + parseInt(tx))
+        // console.log("Auth : " + parseInt(tx))
         setAuth(parseInt(tx))
         // use this on the landing page before allowing them to use posts or proposals
         // also use this to check the wallet addresse given in the input field in the mint and airdrop function to make sure no wallet is sent 2 NFTs
     };
+
 
 
 
@@ -95,9 +103,9 @@ const Navbar = (props) => {
         }
       }
 
-    window.onbeforeunload = (e) =>{
-    // logout();
-    }
+    // window.onbeforeunload = (e) =>{
+    // // logout();
+    // }
 
     useEffect(() => {
       var addr = userAddress
@@ -111,9 +119,7 @@ const Navbar = (props) => {
       getbalanceOf()
     }, [userAddress,setUserAddress])
 
-    useEffect(() => {
-      navigate("/")
-    },[userAddress,setUserAddress])
+
 
     // useEffect(() => {
     //   if(auth >= 1){
@@ -140,8 +146,8 @@ const Navbar = (props) => {
       } catch (error) {
         console.log('Error connecting...');
       }
-
-    } else {
+    }
+     else {
       alert('Meta Mask not detected');
     }
   }
@@ -204,11 +210,16 @@ const Navbar = (props) => {
               <Linked style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='social'>Social</Linked>
             </li>
             {
-              auth === 1 ? 
+              auth > 0 ? 
+              <>
               <li>
                 {/* <a href='#'>Team</a> */}
-                <a href="/vote" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Vote</a>
+                <Link to="vote" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Vote</Link>
               </li>
+                <li>
+                  <Link to="propose" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Propose</Link>
+                </li>
+              </>
               : <p style={{color:"#ff4a4a", marginTop:"15px"}}>Unauthorized</p>
             }
             <li>
