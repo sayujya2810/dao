@@ -46,13 +46,13 @@ const Timeline = () => {
             </li>
             <li className='timeline-box'>
                 <div className="timeline-content" >
-                  <h1>75% Completion (TBD) </h1>
+                  <h1>75% Completion </h1>
                   <p>Completing the code, deploying the contract, fixing bugs, building community.</p>
                 </div>
             </li>
             <li className='timeline-box'>
                 <div className="timeline-content" >
-                  <h1>100% Completion (TBD)</h1>
+                  <h1>100% Completion </h1>
                   <p>Testing, pushing changes to production, Available to users. </p>
                 </div>
             </li>

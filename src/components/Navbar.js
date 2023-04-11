@@ -214,7 +214,7 @@ const Navbar = (props) => {
               <>
               <li>
                 {/* <a href='#'>Team</a> */}
-                <Link to="vote" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Vote</Link>
+                <Link to="vote" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Post</Link>
               </li>
                 <li>
                   <Link to="propose" style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Propose</Link>

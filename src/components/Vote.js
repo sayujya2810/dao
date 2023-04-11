@@ -14,6 +14,7 @@ import { ethers } from 'ethers'
 import Search from './Search'
 import SearchProposals from './SearchProposals'
 import { redirect, useNavigate, useNavigation } from 'react-router-dom'
+import Funds from './Funds'
 
 const Vote = (props) => {
     // const [walletAddress, setWalletAddress] = useState("Connect")
@@ -25,7 +26,8 @@ const Vote = (props) => {
 
     const [nav, setNav] = useState("welcome")
     const [isAdmin, setIsAdmin] = useState(false)
-    var adminAddress = "0x9769Dd9831a96E49B2c73C3C8431ff349AebD328"
+    // var adminAddress = "0x9769Dd9831a96E49B2c73C3C8431ff349AebD328"
+    var adminAddress = "0x5C6161C09c29876596BE53dC5546f7ec5298d896"
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -88,15 +90,11 @@ const Vote = (props) => {
         
             <div style={{minHeight:"90vh", backgroundColor:"#5a07e0"}}>
                 {nav === "welcome" ? <Welcome /> : null }
-                {nav === "allPro" ? <AllProposals /> : null }
-                {nav === "myPro" ? <MyProposals userAddress={walletAddress} /> : null }
                 {nav === "createPost" ? <CreatePost /> : null }
-                {nav === "createPro" ? <CreateProposal /> : null }
                 {nav === "allPosts" ? <AllPosts /> : null }
                 {nav === "myPosts" ? <MyPosts userAddress={walletAddress} /> : null }
                 {nav === "admin" ? <Admin /> : null }
                 {nav === "search" ? <Search /> : null }
-                {nav === "searchPro" ? <SearchProposals /> : null }
             </div>
     </div>
   )

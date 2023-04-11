@@ -104,7 +104,7 @@ const createPro = async () => {
           <input onChange={(e) => setCategory(e.target.value)} type="text" placeholder='Category' />
           <input min='24' onChange={(e) => setHours(e.target.value)} type="number" placeholder='Hours'/>
           <input onChange={(e) => setMinutes(e.target.value)} type="number" placeholder='Minutes'/>
-          <input type="number" step="0.001" min="0.001" max='0.004' onChange={(e) => setAmount(e.target.value)} placeholder='Amount'/>
+          <input type="number" step="0.001" min="0.001" onChange={(e) => setAmount(e.target.value)} placeholder='Amount'/>
           <input  onChange={(e) => setIpfsHash(e.target.value)} type="text" value={ipfsHash} placeholder='IPFS link' readOnly={true}/>
           <p style={{marginTop:".5rem", marginBottom:".5rem"}}>Upload choose the file, click on upload button and wait until it shows ipfs link in above field </p>
           <div style={{display:"flex", justifyContent:"center", alignItems:"center", border:"1px white solid", borderRadius:"5px"}}>

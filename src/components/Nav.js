@@ -194,7 +194,7 @@ const getbalanceOf = async() => {
             {
                 isAdmin === true ? 
                         <li>
-                            <a onClick={() => handleNav("admin")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Admin</a>
+                            <a onClick={() => handleNav("admin")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Add User</a>
                         </li> : ""
             }
 
@@ -213,6 +213,9 @@ const getbalanceOf = async() => {
                 </li>
                 <li>
                   <a onClick={() => handleNav("searchPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation' >Search Proposal</a>
+                </li>
+                <li>
+                  <a style={{textDecoration: "none"}} className='cursor hover-underline-animation' onClick={() => handleNav("funds")} onMouseEnter={showBalance} onMouseLeave={hideBalance} > {balanceText}</a>
                 </li>
               </>
               : navType === "vote" ? 
@@ -233,7 +236,6 @@ const getbalanceOf = async() => {
               </> : null
             }
 
-            <button id='connect-wallet-btn' onMouseEnter={showBalance} onMouseLeave={hideBalance} > {balanceText}</button>
               <li>
                 <div id='connect-wallet'>
                     <button id='connect-wallet-btn' onClick={requestAccount} >{

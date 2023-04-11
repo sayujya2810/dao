@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from "../components/Nav"
 import AnimatedCursor from "react-animated-cursor"
-import Welcome from "../Pages/Welcome"
+import WelcomePro from "../Pages/WelcomePro"
 import CreatePost from './CreatePost'
 import AllPosts from './AllPosts'
 import MyPosts from './MyPosts'
@@ -13,6 +13,7 @@ import { ethers } from 'ethers'
 import Search from './Search'
 import SearchProposals from './SearchProposals'
 import { redirect, useNavigate, useNavigation } from 'react-router-dom'
+import Funds from './Funds'
 
 const Proposal = (props) => {
     // const [walletAddress, setWalletAddress] = useState("Connect")
@@ -32,8 +33,7 @@ const Proposal = (props) => {
             setIsAdmin(true)
         }
     },[walletAddress, setWalletAddress])
-
-
+    
     useEffect(() => {
         if(authToken < 1){
             alert("unauth" + authToken)
@@ -86,15 +86,12 @@ const Proposal = (props) => {
         {/* Rendreing Voting Sys */}
         
             <div style={{minHeight:"90vh", backgroundColor:"#5a07e0"}}>
-                {nav === "welcome" ? <Welcome /> : null }
+                {nav === "welcome" ? <WelcomePro /> : null }
+                {nav === "funds" ? <Funds /> : null }
                 {nav === "allPro" ? <AllProposals /> : null }
                 {nav === "myPro" ? <MyProposals userAddress={walletAddress} /> : null }
-                {nav === "createPost" ? <CreatePost /> : null }
                 {nav === "createPro" ? <CreateProposal /> : null }
-                {nav === "allPosts" ? <AllPosts /> : null }
-                {nav === "myPosts" ? <MyPosts userAddress={walletAddress} /> : null }
                 {nav === "admin" ? <Admin /> : null }
-                {nav === "search" ? <Search /> : null }
                 {nav === "searchPro" ? <SearchProposals /> : null }
             </div>
     </div>
