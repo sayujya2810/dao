@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import "../components/styles/Team.css"
 import {FiArrowDown, FiArrowUp} from "react-icons/fi"
 import { Alert, Button, Snackbar } from '@mui/material'
+import CryptoJS from 'crypto-js';
 
 const AllPosts = (props) => {
 
@@ -30,6 +31,17 @@ const AllPosts = (props) => {
 
   const handleWarningClick = () => {
     setOpenWarning(true)
+  }
+
+  const decryptHex = (_cipher) => {
+    var decryptedMessage = CryptoJS.AES.decrypt(_cipher, process.env.REACT_APP_ENCRYPTION_KEY)
+    var hex = decryptedMessage.toString()
+    var str = ''
+    for (var n = 0; n < hex.length; n += 2) {
+      str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+    }
+    console.log("Str : " + str)
+    return str
   }
 
   const totalposts = async() => {
@@ -174,10 +186,9 @@ const voteDown = async (_id, _endTime) => {
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(post[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px"}}>{parseTime(post[6]) }</span>
                 </div>
-                <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{post[4]}</span>
-
+                <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{decryptHex(post[4])}</span>
                 {/* Message */}
-                <p className="message"> {post[7]}</p>
+                <p className="message"> {decryptHex(post[7])}</p>
                 
                 <div style={{ marginTop:"auto"}}>
                   {

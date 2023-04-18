@@ -2,17 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Nav from "../components/Nav"
 import AnimatedCursor from "react-animated-cursor"
 import WelcomePro from "../Pages/WelcomePro"
-import CreatePost from './CreatePost'
-import AllPosts from './AllPosts'
-import MyPosts from './MyPosts'
 import Admin from './Admin'
 import AllProposals from './AllProposals'
 import MyProposals from './MyProposals'
 import CreateProposal from './CreateProposal'
-import { ethers } from 'ethers'
-import Search from './Search'
 import SearchProposals from './SearchProposals'
-import { redirect, useNavigate, useNavigation } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 import Funds from './Funds'
 
 const Proposal = (props) => {
@@ -25,7 +20,8 @@ const Proposal = (props) => {
 
     const [nav, setNav] = useState("welcome")
     const [isAdmin, setIsAdmin] = useState(false)
-    var adminAddress = "0x9769Dd9831a96E49B2c73C3C8431ff349AebD328"
+    var adminAddress = process.env.REACT_APP_ADMIN_ADDRESS + ""
+    alert(adminAddress)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -36,7 +32,7 @@ const Proposal = (props) => {
     
     useEffect(() => {
         if(authToken < 1){
-            alert("unauth" + authToken)
+            navigate("/")
         }
     },[authToken,setAuthToken])
 
@@ -50,6 +46,7 @@ const Proposal = (props) => {
 
     if(window.ethereum){
       window.ethereum.on('accountsChanged', () => {
+        window.location.reload()
         navigate("/")
         //  alert(auth)
       });

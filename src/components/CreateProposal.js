@@ -4,6 +4,7 @@ import { ethers } from 'ethers'
 import { Web3Storage } from 'web3.storage'
 import axios from 'axios'
 import {HiOutlineUpload} from 'react-icons/hi'
+import CryptoJS from 'crypto-js'
 const FormData = require("form-data");
 // import dotenv from 'dotenv'
 
@@ -13,9 +14,12 @@ const CreateProposal = () => {
   const [minutes, setMinutes] = useState(0)
   const [duration, setDuration] = useState(0);
   const [category, setCategory] = useState("")
+  const [encryptedCategory, setEncryptedCategory] = useState("")
   const [message, setMessage] = useState("")
+  const [encryptedMessage, setEncryptedMessage] = useState("")
   const [amount, setAmount] = useState(0.0)
   const [ipfsHash , setIpfsHash] = useState("")
+  const [encryptedIpfs, setEncryptedIpfs] = useState("")
   const [file, setFile] = useState();
 
   const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGIyOTA2NzJGNUJBY2Y2OTBBMkE4NGQ5QzE3NWE4ZUEwRjM0ZWI5ZjYiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODEwMzY1NjY5NDgsIm5hbWUiOiJkYW8ifQ.VSphQhxNHE9h1AQB3TMl29Jta1-jSJceGWgL2ur8NsI" })
@@ -26,7 +30,18 @@ const CreateProposal = () => {
     setDuration(sec);
   }, [hours, setHours, minutes, setMinutes])
 
+  useEffect(() => {
+    setEncryptedMessage(CryptoJS.AES.encrypt(message,"kXp2s5v8y/B?E(H+MbQeThWmYq3t6w9z"))
+  },[message,setMessage])
 
+  useEffect(() => {
+    setEncryptedCategory(CryptoJS.AES.encrypt(category,"kXp2s5v8y/B?E(H+MbQeThWmYq3t6w9z"))
+  },[category,setCategory])
+
+  useEffect(() => {
+    setEncryptedIpfs(CryptoJS.AES.encrypt(ipfsHash,"kXp2s5v8y/B?E(H+MbQeThWmYq3t6w9z"))
+  },[ipfsHash,setIpfsHash])
+  
       const sendFileToIPFS = async (e) => {
 
         if (file) {
@@ -90,7 +105,7 @@ const createPro = async () => {
     const EtherToWei = ethers.utils.parseUnits(amount,"ether") // get the ether value (0.11) in decimal in the input field
     // const hash = "QmNg95LhDNViDb6zdsFptV8MmGx8Wd1Mkr3wt235YR45Cc"; // use the file upload to pinata to generate the ifps has
     const ifpslink = ipfsHash                  //display the ifps link in a greyed out field that cant be edited
-    const tx = await contract.createPro(category,duration,message,ifpslink,EtherToWei); 
+    const tx = await contract.createPro(encryptedCategory.toString(),duration,encryptedMessage.toString(),encryptedIpfs.toString(),EtherToWei); 
     const receipt = await tx.wait();
     console.log("link : " + ifpslink )
 

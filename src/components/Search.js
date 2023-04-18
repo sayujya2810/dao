@@ -5,6 +5,8 @@ import {AiOutlineSearch} from 'react-icons/ai'
 import {FiArrowDown, FiArrowUp} from "react-icons/fi"
 import "../components/styles/Team.css"
 import { Alert, Snackbar } from '@mui/material'
+import CryptoJS from 'crypto-js'
+
 
 const Search = () => {
 
@@ -17,6 +19,18 @@ const Search = () => {
     const handleCloseError = () => setOpenError(false);
     const handleCloseWarning = () => setOpenWarning(false)
     const [errorMessage, setErrorMessage] = useState("")
+
+
+    const decryptHex = (_cipher) => {
+    var decryptedMessage = CryptoJS.AES.decrypt(_cipher, `${process.env.REACT_APP_ENCRYPTION_KEY}`)
+    var hex = decryptedMessage.toString()
+    var str = ''
+    for (var n = 0; n < hex.length; n += 2) {
+      str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+    }
+    console.log("Str : " + str)
+    return str
+  }
 
     const handleClick = () => {
         setOpen(true);
@@ -135,10 +149,10 @@ const parseDate = (_d) =>{
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(result[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px"}}>{parseTime(result[6]) }</span>
                 </div>
-                <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{result[4]}</span>
+                <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{decryptHex(result[4])}</span>
 
                 {/* Message */}
-                <p className="message"> {result[7]}</p>
+                <p className="message"> {decryptHex(result[7])}</p>
                 
                 <div style={{ marginTop:"auto"}}>
                   {

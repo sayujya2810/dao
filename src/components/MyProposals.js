@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import "../components/styles/Team.css"
 import {FiArrowDown, FiArrowUp} from "react-icons/fi"
 import { Alert, Button, Snackbar } from '@mui/material'
+import CryptoJS from "crypto-js"
+
 
 const MyProposals = (props) => {
 
@@ -34,6 +36,17 @@ const MyProposals = (props) => {
   useEffect( () => {
     prosOfOwner()
   },[])
+
+  const decryptHex = (_cipher) => {
+    var decryptedMessage = CryptoJS.AES.decrypt(_cipher, process.env.REACT_APP_ENCRYPTION_KEY)
+    var hex = decryptedMessage.toString()
+    var str = ''
+    for (var n = 0; n < hex.length; n += 2) {
+      str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+    }
+    console.log("Str : " + str)
+    return str
+  }
 
 
 
@@ -186,13 +199,13 @@ const parseDate = (_d) =>{
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px" }}>{parseTime(proposal[5]) }</span>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px"}}>{parseTime(proposal[6]) }</span>
                 </div>
-                <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{proposal[4]}</span>
+                <span style={{ borderRadius:"3px", color:"white", padding:"3px", marginTop:"9px", border: "1px white solid"}}>{decryptHex(proposal[4])}</span>
                 <div style={{display:"flex", justifyContent:"space-between", marginTop:"9px"}}>
-                  <a href={proposal[8]} style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px", textDecoration:"none", width:"45%"}} target="_blank">Blueprint</a>
+                  <a href={decryptHex(proposal[8])} style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px", textDecoration:"none", width:"45%"}} target="_blank">Blueprint</a>
                   <span style={{border:"1px white solid", borderRadius:"3px", color:"white", padding:"3px", marginBottom:"3px", width:"45%" }}>{ethers.utils.formatEther(proposal[9])} MATIC</span>
                 </div>
                 {/* Message */}
-                <p className="message"> {proposal[7]}</p>
+                <p className="message"> {decryptHex(proposal[7])}</p>
                 
                 <div style={{ marginTop:"auto"}}>
                   {

@@ -32,8 +32,6 @@ const Admin = () => {
   }, [multiAddressString,setMultiAddressString])
 
 
-
-
   return (
     <div style={{ height:"90vh", display:"flex",justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
         <div style={{  height:"20vh",display:"flex",justifyContent:"space-between",width:"100%", flexDirection:"column"}}>

@@ -6,15 +6,8 @@ import CreatePost from './CreatePost'
 import AllPosts from './AllPosts'
 import MyPosts from './MyPosts'
 import Admin from './Admin'
-import Proposal from './Proposal'
-import AllProposals from './AllProposals'
-import MyProposals from './MyProposals'
-import CreateProposal from './CreateProposal'
-import { ethers } from 'ethers'
 import Search from './Search'
-import SearchProposals from './SearchProposals'
-import { redirect, useNavigate, useNavigation } from 'react-router-dom'
-import Funds from './Funds'
+import { useNavigate } from 'react-router-dom'
 
 const Vote = (props) => {
     // const [walletAddress, setWalletAddress] = useState("Connect")
@@ -27,11 +20,11 @@ const Vote = (props) => {
     const [nav, setNav] = useState("welcome")
     const [isAdmin, setIsAdmin] = useState(false)
     // var adminAddress = "0x9769Dd9831a96E49B2c73C3C8431ff349AebD328"
-    var adminAddress = "0x5C6161C09c29876596BE53dC5546f7ec5298d896"
+    var adminAddress = `${process.env.REACT_APP_ADMIN_ADDRESS}`
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(walletAddress == adminAddress.toLowerCase()){
+        if(walletAddress === adminAddress.toLowerCase()){
             setIsAdmin(true)
         }
     },[walletAddress, setWalletAddress])
@@ -39,7 +32,8 @@ const Vote = (props) => {
 
     useEffect(() => {
         if(authToken < 1){
-            alert("unauth" + authToken)
+            // alert("unauth" + authToken)
+            navigate("/")
         }
     },[authToken,setAuthToken])
 
@@ -53,6 +47,7 @@ const Vote = (props) => {
 
     if(window.ethereum){
       window.ethereum.on('accountsChanged', () => {
+        window.location.reload()
         navigate("/")
         //  alert(auth)
       });

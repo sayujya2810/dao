@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import './styles/Navbar.css'
-import { FaInstagram, FaTwitter, FaDiscord } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {Link as Linked} from 'react-scroll'
-import { Route, Routes, Link, useNavigate  } from 'react-router-dom';
-import Vote from './Vote';
+import {Link, useNavigate  } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ethers } from 'ethers';
 // import Mint from './Mint';
@@ -12,13 +10,12 @@ import { ethers } from 'ethers';
 
 const Navbar = (props) => {
 
-  const [walletAddress, setWalletAddress] = useState("Connect Wallet")
+
   const [trucatedAddress, setTrucatedAddress] = useState("Connect")
   // const [auth, setAuth] = useState(0)
-  const setFlag = props.child1
   const setUserAddress = props.userAddress
   const userAddress = props.settingAddress
-  const navigate = useNavigate();
+
 
   const auth = props.auth
   const setAuth = props.setAuth
@@ -30,9 +27,25 @@ const Navbar = (props) => {
     // const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     if(window.ethereum){
-      window.ethereum.on('accountsChanged', () => {
-         requestAccount()
+      window.ethereum.on('accountsChanged', (accounts) => {
+        // alert(accounts.length)
+        if(accounts.length > 0){
+          requestAccount()
+        }
+        else{
+          setAuth(0)
+          setUserAddress("Connect")
+        }
       });
+
+      window.ethereum.on("chainChanged" , async(accounts) => {
+        if(accounts.length > 0){
+          window.location.reload()
+          switchNetworkPolygon()
+        }
+        else{
+        }
+      })
       // window.ethereum._metamask.isUnlocked().then(res => console.log(res))
     }
     
@@ -112,7 +125,6 @@ const Navbar = (props) => {
       // var addr = walletAddress
       addr = truncate(addr)
       setTrucatedAddress(addr)
-      switchNetworkPolygon()
     },[userAddress,setUserAddress])
 
     useEffect(() => {
