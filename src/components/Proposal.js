@@ -21,7 +21,6 @@ const Proposal = (props) => {
     const [nav, setNav] = useState("welcome")
     const [isAdmin, setIsAdmin] = useState(false)
     var adminAddress = process.env.REACT_APP_ADMIN_ADDRESS + ""
-    alert(adminAddress)
     const navigate = useNavigate()
 
     useEffect(() => {

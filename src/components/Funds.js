@@ -14,7 +14,7 @@ const Funds = () => {
         const contractAddress = "0x37C2121B028D244B4B432f028C93C8Af7c96Db1D";
         const contract = new ethers.Contract(contractAddress, abi, signer);
         const value1 = ethers.utils.parseEther(funds.toString());// get the ether value (0.0005) in decimal in the input field
-        const tx = await contract.sendViaCall("0x7bcc3D0BC6461077121ECD39A558c62d13dAcA53",{value: value1}); 
+        const tx = await contract.sendViaCall("0xd45E2BE2D8e2E952dA1a397eA7a3B517d14359aB",{value: value1}); 
         const receipt = await tx.wait();
     }
 

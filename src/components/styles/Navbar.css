@@ -148,11 +148,13 @@ li{
 
   .mobile-menu-link {
     background-color: black;
-    height: 27rem;
+    height: max-content;
     display: grid;
-    grid-column: 2/5;
+    grid-column: 4/10;
+    grid-row: 2/7;
     align-items: center;
-    padding-left: 3rem;
+    padding-left: 1rem;
+    padding-bottom: 3rem;
     transition: all 2s linear;
     /* transform-origin: top; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,

@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 import React, { useEffect, useState } from 'react'
-
+import { SiAuthy } from "react-icons/si"
 const Admin = () => {
 
   const [singleAddress, setSingleAddress] = useState("")
@@ -35,15 +35,15 @@ const Admin = () => {
   return (
     <div style={{ height:"90vh", display:"flex",justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
         <div style={{  height:"20vh",display:"flex",justifyContent:"space-between",width:"100%", flexDirection:"column"}}>
-            <h1>Deposit Funds</h1>
+            <h1>Authorize</h1>
             <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
-                <input style={{color:"black",padding:".5rem", borderRadius:"5px", width:"30%", marginRight:"1rem"}} type="text" onChange={(e) => setSingleAddress(e.target.value)} placeholder='Funds'/>
-                <button style={{backgroundColor:"black", borderRadius:"5px", padding:".5rem", textAlign:"center"}} onClick={mint}>Mint</button>
+                <input style={{color:"black",padding:".5rem", borderRadius:"5px", width:"30%", marginRight:"1rem"}} type="text" onChange={(e) => setSingleAddress(e.target.value)} placeholder='Wallet Address'/>
+                <button style={{backgroundColor:"black", borderRadius:"5px", padding:".5rem", textAlign:"center"}} onClick={mint}><SiAuthy /></button>
             </div>
-            <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
-                <input style={{color:"black",padding:".5rem", borderRadius:"5px", width:"30%", marginRight:"1rem"}} type="text" onChange={(e) => setMultiAddressString(e.target.value)} placeholder='Funds'/>
+            {/* <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
+                <input style={{color:"black",padding:".5rem", borderRadius:"5px", width:"30%", marginRight:"1rem"}} type="text" onChange={(e) => setMultiAddressString(e.target.value)} placeholder='Address separated with ,'/>
                 <button style={{backgroundColor:"black", borderRadius:"5px", padding:".5rem", textAlign:"center"}} onClick={airdrop}>air</button>
-            </div>
+            </div> */}
         </div>
     </div>
   )
