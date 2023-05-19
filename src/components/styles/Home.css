@@ -3,9 +3,30 @@
     overflow-y: hidden;
     width: 100%;
 }
-    ::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
 }
+
+/* width */
+/* ::-webkit-scrollbar {
+  width: 10px;
+} */
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: #1b1b1b;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
 
 *{
   letter-spacing: .55px;

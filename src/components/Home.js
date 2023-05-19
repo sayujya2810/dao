@@ -15,6 +15,7 @@ import Navbar from './Navbar'
 import AnimatedCursor from "react-animated-cursor"
 import ImpLinks from './ImpLinks'
 import { useEffect } from 'react'
+import LoadingScreen from './LoadingScreen'
 // import Navbar from './components/navbar/'
 // import WalletCard from './WalletCard'
 
@@ -40,8 +41,8 @@ const Home = (props) => {
             <Intro />
             <About />
             <Timeline />
-            <ImpLinks />
             <Faq />
+            <ImpLinks />
             <Team />
             <Footer />
             {/* <Cursor /> */}
