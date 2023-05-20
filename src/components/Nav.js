@@ -60,7 +60,7 @@ const getBalance = async() => {
 };
 
 const showBalance = () => {
-  setBalanceText(balance + " MATIC")
+  setBalanceText(truncateEth(balance) + " MATIC")
 } 
 const hideBalance = () => {
   setBalanceText("Funds")
@@ -122,6 +122,11 @@ const getbalanceOf = async() => {
     function truncate(addressString) {
       if (addressString )
         return addressString.slice(0, 5) + '...' + addressString.slice(39);
+    }
+
+    function truncateEth(eth){
+      eth = Math.trunc(eth*1000)/1000
+      return eth
     }
 
     useEffect(() => {
@@ -191,17 +196,18 @@ const getbalanceOf = async() => {
             <li>
               <a href='/' style={{textDecoration: "none"}} className='cursor hover-underline-animation' to='main' >Home</a>
             </li>
-            {
-                isAdmin === true ? 
-                        <li>
-                            <a onClick={() => handleNav("admin")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Authorize</a>
-                        </li> : ""
-            }
+            
 
             {
               navType === "proposal" ? 
 
               <>
+              {
+                isAdmin === true ? 
+                        <li>
+                            <a onClick={() => handleNav("admin")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Authorize</a>
+                        </li> : ""
+              }
                 <li>
                   <a onClick={() => handleNav("createPro")} style={{textDecoration: "none"}} className='cursor hover-underline-animation'>Create Proposals</a>
                 </li>

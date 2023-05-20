@@ -70,7 +70,7 @@ function flip(event){
       <div className="team">
         <div data-aos={"fade-up"} className="team_member card" onClick={flip}>
           <div className="team_img">
-            {/* <img src="./images/profile/veera.jpg" alt="Team_image" style={{borderRadius:"50%"}}  /> */}
+            <img src="./images/profile/veera.jpg" alt="Team_image" style={{borderRadius:"50%"}}  />
           </div>
           <h3>VEERA VP</h3>
           <p className="role">Blockchain Developer</p>
