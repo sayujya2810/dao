@@ -25,7 +25,7 @@ const Footer = () => {
 
         </div>
         <p data-aos={"fade-up"} style={{fontSize:"12px"}} >MADE IN INDIA</p>
-        <p data-aos={"fade-up"}>Copyright © Decetralised Autonomous Organisation. All rights reserved</p>
+        <p data-aos={"fade-up"}>Copyright © Decetralized Autonomous Organization. All rights reserved</p>
         </div>
     </div>
   )
